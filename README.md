@@ -4,8 +4,8 @@
 
 # {APP-NAME} chart
 
-Giant Swarm offers a {APP-NAME} App which can be installed in workload clusters.
-Here we define the {APP-NAME} chart with its templates and default configuration.
+Giant Swarm offers a Weave GitOps Server app which can be installed in workload clusters.
+Here we define the Weave GitOps Server chart with its templates and default configuration.
 
 **What is this app?**
 
