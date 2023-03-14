@@ -30,8 +30,8 @@ rules:
     resources: ["terraforms"]
     verbs: [ "get", "list", "watch", "patch" ]
 
-{{- if gt (len $.Values.rbac.additionalRules) 0 -}}
-{{- toYaml $.Values.rbac.additionalRules | nindent 2 -}}
+{{- if gt (len $.Values.giantswarm.rbac.additionalRules) 0 -}}
+{{- toYaml $.Values.giantswarm.rbac.additionalRules | nindent 2 -}}
 {{- end }}
 {{- if .Values.adminUser.createClusterRole }}
 ---
@@ -72,8 +72,8 @@ rules:
     resources: [ "providers", "alerts" ]
     verbs: [ "get", "list", "watch", "patch" ]
 
-{{- if gt (len $.Values.rbac.additionalRules) 0 -}}
-{{- toYaml $.Values.rbac.additionalRules | nindent 2 -}}
+{{- if gt (len $.Values.giantswarm.rbac.additionalRules) 0 -}}
+{{- toYaml $.Values.giantswarm.rbac.additionalRules | nindent 2 -}}
 {{- end -}}
 {{- end }}
 {{- end }}

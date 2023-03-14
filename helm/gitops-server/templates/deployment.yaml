@@ -36,8 +36,8 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.image.registry }}/{{ .Values.giantswarm.images.server.image }}:{{ .Values.giantswarm.images.server.tag  | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.giantswarm.images.server.pullPolicy }}
           args:
             - "--log-level"
             - "{{ .Values.logLevel }}"
@@ -88,7 +88,7 @@ spec:
           {{- end }}
           {{- end }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.giantswarm.resources.server | nindent 12 }}
           {{- if or .Values.serverTLS.enable .Values.extraVolumeMounts }}
           volumeMounts:
           {{- end }}
