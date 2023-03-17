@@ -64,7 +64,14 @@ git subtree merge --squash -P helm/gitops-server temp-split-branch
 git notes add -m "upstreamSync: https://github.com/weaveworks/weave-gitops/tree/${upstream_latest_tag}"
 
 # Generate `values.schema.json`. Bear in mind, the `schema-gen` plugin is deprecated,
-# so use it with care.
+# so use it with care. Also, when using this plugin you may notice sometimes the information
+# is incomplete, which is not wrong, but may influence schema validation later on. An example
+# of this is the `.ingress.hosts: []`. When empty by default, the schema will only tell us its an array:
+# "hosts": {
+#    "type": "array"
+# }
+# Which is incomplete in a sense that Helm Chart actually expects certain fields to be present when array
+# is field in. To mitigate this, fill in the array with some synthetic values, and then generate the schema.
 helm schema-gen helm/gitops-server/values.yaml > helm/gitops-server/values.schema.json
 
 # Push the changes to the upgrade branch.

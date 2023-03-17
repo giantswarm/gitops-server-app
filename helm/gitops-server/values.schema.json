@@ -43,10 +43,51 @@
             }
         },
         "extraVolumeMounts": {
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "mountPath": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "readOnly": {
+                        "type": "boolean"
+                    }
+                }
+            }
         },
         "extraVolumes": {
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "csi": {
+                        "type": "object",
+                        "properties": {
+                            "driver": {
+                                "type": "string"
+                            },
+                            "readOnly": {
+                                "type": "boolean"
+                            },
+                            "volumeAttributes": {
+                                "type": "object",
+                                "properties": {
+                                    "secretProviderClass": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
         },
         "fullnameOverride": {
             "type": "string"
@@ -91,7 +132,30 @@
                     "type": "object",
                     "properties": {
                         "additionalRules": {
-                            "type": "array"
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "apiGroups": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "resources": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "verbs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
                         },
                         "create": {
                             "type": "boolean"
@@ -106,7 +170,10 @@
                                             "type": "boolean"
                                         },
                                         "resourceNames": {
-                                            "type": "array"
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     }
                                 },
@@ -117,7 +184,10 @@
                                             "type": "boolean"
                                         },
                                         "resourceNames": {
-                                            "type": "array"
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         }
                                     }
                                 }
@@ -201,7 +271,15 @@
             }
         },
         "imagePullSecrets": {
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
         },
         "ingress": {
             "type": "object",
@@ -216,10 +294,46 @@
                     "type": "boolean"
                 },
                 "hosts": {
-                    "type": "array"
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "host": {
+                                "type": "string"
+                            },
+                            "paths": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "path": {
+                                            "type": "string"
+                                        },
+                                        "pathType": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "tls": {
-                    "type": "array"
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "hosts": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "secretName": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 }
             }
         },
