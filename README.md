@@ -108,7 +108,7 @@ oidcSecret:
   redirectURL: https://gitops.fake.cluster.domain/oauth2/callback
 ```
 
-Bear in mind, as shown in the upstream documentation, the Kubernetes Secret may also be created by hand, or by some other means, in which case the create flag should remain set to `false`. No further configuration of the Helm Chart would be required in such case, the Secret should **get discovered by the GitOps Server automatically**.
+Bear in mind, as shown in the upstream documentation, the `oidc-auth` Kubernetes Secret may also be created by hand, or by some other means, in which case the create flag should remain set to `false`. No further configuration of the Helm Chart would be required in such case, the Secret should **get discovered by the GitOps Server automatically**.
 
 #### Configuring Helm Chart for cluster user account method
 
@@ -129,6 +129,8 @@ To create a local user the create flag, e.g. `adminUser.create`, must be switche
 $ echo -n fakepassword | gitops get bcrypt-hash
 $2a$10$sLpbh.W/hR77JvD40ScekOl50Dw97PaD.sRhOdu.SlNxPCAJHCCVK
 ```
+
+**IMPORTANT**, as for the OIDC login, the `cluster-user-auth` Kubernetes Secret holding user credentials may get created outside this Helm Chart, in which case, the `adminUser.createSecret` flag should get switched to `false`. Note however, presence of the `cluster-user-auth` Secret is **absolutely necessary** by the GitOps Server to boot properly, when `user-account` login method has been choosen.
 
 ### Configuring RBAC permissions
 
