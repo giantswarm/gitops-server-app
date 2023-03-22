@@ -1,21 +1,14 @@
 apiVersion: v2
-name: weave-gitops
+name: gitops-server
+home: https://github.com/giantswarm/gitops-server-app
 description: Weave Gitops is a set of tools and services to aid your interactions with Flux
-# A chart can be either an 'application' or a 'library' chart.
-#
-# Application charts are a collection of templates that can be packaged into versioned archives
-# to be deployed.
-#
-# Library charts provide useful utilities or functions for the chart developer. They're included as
-# a dependency of application charts to inject those utilities and functions into the rendering
-# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+icon: https://s.giantswarm.io/app-icons/1/png/default-app-light.png
+keywords:
+  - gitops
+  - flux
 type: application
-# This is the chart version. This version number should be incremented each time you make changes
-# to the chart and its templates, including the app version.
-# Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 4.0.15
-# This is the version number of the application being deployed. This version number should be
-# incremented each time you make changes to the application. Versions are not expected to
-# follow Semantic Versioning. They should reflect the version the application is using.
-# It is recommended to use it with quotes.
+version: 0.0.0
 appVersion: "v0.18.0"
+annotations:
+  application.giantswarm.io/team: team-honeybadger
+  config.giantswarm.io/version: 1.x.x

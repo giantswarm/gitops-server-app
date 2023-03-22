@@ -9,7 +9,13 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: "{{ .Values.image.registry }}/{{ .Values.giantswarm.images.test.image }}:{{ .Values.giantswarm.images.test.tag }}"
+      imagePullPolicy: {{ .Values.giantswarm.images.test.pullPolicy }}
       command: ['wget']
       args: ['{{ include "chart.fullname" . }}:{{ .Values.service.port }}']
+      securityContext:
+        readOnlyRootFilesystem: true
+        runAsUser: 1000
+      resources:
+        {{- toYaml .Values.giantswarm.resources.test | nindent 8 }}
   restartPolicy: Never
