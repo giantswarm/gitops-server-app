@@ -1,0 +1,8 @@
+additionalArgs:
+  - "--auth-methods=user-account"
+adminUser:
+  create: true
+  createClusterRole: true
+  createSecret: true
+  username: gitops-test-user
+  passwordHash: "$2a$10$J7aFXDVfsTXgEynCXt.vIu.B6HPftXw9a2BCEtkp/zENUcdJ4HCre"
