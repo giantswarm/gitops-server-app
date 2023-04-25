@@ -7,7 +7,7 @@ keywords:
   - gitops
   - flux
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "v0.18.0"
 annotations:
   application.giantswarm.io/team: team-honeybadger
