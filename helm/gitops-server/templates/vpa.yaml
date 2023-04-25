@@ -16,7 +16,7 @@ spec:
         memory: {{ .Values.giantswarm.resources.server.requests.memory }}
       maxAllowed:
         cpu: 1000m
-        memory: 1000mi
+        memory: 1000Mi
       mode: Auto
   targetRef:
     apiVersion: apps/v1
