@@ -9,7 +9,7 @@ metadata:
 spec:
   resourcePolicy:
     containerPolicies:
-    - containerName: gitops-server
+    - containerName: {{ .Chart.Name }}
       controlledValues: RequestsAndLimits
       minAllowed:
         cpu: {{ .Values.giantswarm.resources.server.requests.cpu }}
