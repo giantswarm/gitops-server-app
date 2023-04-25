@@ -88,7 +88,7 @@ spec:
           {{- end }}
           {{- end }}
           resources:
-            {{- toYaml .Values.giantswarm.resources.server | nindent 12 }}
+            {{- include "deployment.resources" . | nindent 12 }}
           {{- if or .Values.serverTLS.enable .Values.extraVolumeMounts }}
           volumeMounts:
           {{- end }}
