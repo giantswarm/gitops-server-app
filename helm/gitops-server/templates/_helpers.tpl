@@ -76,3 +76,16 @@ Return the target Kubernetes version
 {{- default .Capabilities.KubeVersion.Version .Values.kubeVersion -}}
 {{- end -}}
 {{- end -}}
+
+{{- define "resource.vpa.enabled" -}}
+{{- if and (.Capabilities.APIVersions.Has "autoscaling.k8s.io/v1") (.Values.giantswarm.resources.vpa.enabled) }}true{{ else }}false{{ end }}
+{{- end -}}
+
+{{- define "deployment.resources" -}}
+requests:
+{{ toYaml .Values.giantswarm.resources.server.requests | indent 2 -}}
+{{ if eq (include "resource.vpa.enabled" .) "false" }}
+limits:
+{{ toYaml .Values.giantswarm.resources.server.limits | indent 2 -}}
+{{- end -}}
+{{- end -}}

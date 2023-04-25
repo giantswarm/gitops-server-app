@@ -9,6 +9,8 @@ giantswarm:
       pullPolicy: IfNotPresent
       tag: 1.36.0
   resources:
+    vpa:
+      enabled: true
     server:
       limits:
         cpu: 200m
