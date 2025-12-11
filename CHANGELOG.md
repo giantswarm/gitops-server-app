@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/
+
 ## [0.1.3] - 2023-12-20
 
 ### Changed
@@ -33,6 +37,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - initial Helm Chart and repository configuration.
 
 [Unreleased]: https://github.com/giantswarm/gitops-server-app/compare/v0.1.3...HEAD
+
+### Changed
+
+- Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/
 [0.1.3]: https://github.com/giantswarm/gitops-server-app/compare/v0.1.3...v0.1.3
 [0.1.3]: https://github.com/giantswarm/gitops-server-app/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/giantswarm/gitops-server-app/compare/v0.1.1...v0.1.2
