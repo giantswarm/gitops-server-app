@@ -39,7 +39,7 @@ helm.sh/chart: {{ include "chart.chart" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
-application.giantswarm.io/team: {{ index .Chart.Annotations "application.giantswarm.io/team" | quote }}
+application.giantswarm.io/team: {{ index .Chart.Annotations "io.giantswarm.application.team" | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
