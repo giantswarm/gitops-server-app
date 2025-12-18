@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add Gateway API route support as an alternative to Ingress for clusters using Gateway API.
+  - Support for HTTPRoute, GRPCRoute, TCPRoute, TLSRoute, and UDPRoute kinds.
+  - Envoy Gateway SecurityPolicy integration with basic auth, CORS, JWT, OIDC, external auth, and authorization.
+
 ### Changed
 
 - Migrate Chart.yaml annotations to new format as per https://docs.giantswarm.io/reference/platform-api/chart-metadata/

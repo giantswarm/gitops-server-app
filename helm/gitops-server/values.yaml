@@ -143,6 +143,73 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+# -- Gateway API route configuration
+# This is an alternative to ingress for clusters using Gateway API
+route:
+  # -- Enable the Gateway API route
+  enabled: false
+  # -- Set the route kind
+  # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
+  kind: HTTPRoute
+  # -- Override the route name (defaults to chart fullname)
+  name: ""
+  # -- Annotations to add to the route
+  annotations: {}
+  # -- Labels to add to the route
+  labels: {}
+  # -- Hostnames that the route should match
+  hostnames: []
+  # - gitops.example.com
+  # -- Parent references (Gateway) that the route should attach to
+  parentRefs: []
+  # - name: my-gateway
+  #   namespace: gateway-system
+  # -- Matches define conditions used for matching the rule against incoming requests
+  matches:
+    - path:
+        type: PathPrefix
+        value: /
+  # -- Filters define the filters that are applied to requests that match this rule
+  filters: []
+  # -- Additional custom rules that can be added to the route
+  additionalRules: []
+  # -- Envoy Gateway SecurityPolicy configuration
+  securityPolicy:
+    # -- Enable the SecurityPolicy resource
+    enabled: false
+    # -- Annotations to add to the SecurityPolicy
+    annotations: {}
+    # -- Labels to add to the SecurityPolicy
+    labels: {}
+    # -- Basic authentication configuration
+    # basicAuth:
+    #   users:
+    #     name: <secret_name>
+    # -- CORS configuration
+    # cors:
+    #   allowOrigins:
+    #     - "*"
+    # -- JWT authentication configuration
+    # jwt:
+    #   providers:
+    #     - name: my-provider
+    #       issuer: https://issuer.example.com
+    # -- OIDC authentication configuration
+    # oidc:
+    #   provider:
+    #     issuer: https://issuer.example.com
+    # -- External authentication configuration
+    # extAuth:
+    #   http:
+    #     backendRef:
+    #       name: auth-service
+    #       port: 80
+    # -- Authorization rules
+    # authorization:
+    #   defaultAction: Deny
+    #   rules: []
+
 extraVolumes: []
 extraVolumeMounts: []
 # Example using extraVolumes and extraVolumeMounts to load 'oidc-auth' secret
