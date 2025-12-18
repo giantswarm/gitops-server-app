@@ -1,14 +1,13 @@
 apiVersion: v2
 name: gitops-server
 home: https://github.com/giantswarm/gitops-server-app
-description: Weave Gitops is a set of tools and services to aid your interactions
-  with Flux
+description: Weave Gitops is a set of tools and services to aid your interactions with Flux
 icon: https://s.giantswarm.io/app-icons/weaveworks/1/icon_light.svg
 keywords:
-- gitops
-- flux
+  - gitops
+  - flux
 type: application
-version: 0.1.3
+version: 0.2.0
 appVersion: v0.18.0
 annotations:
   io.giantswarm.application.team: honeybadger
